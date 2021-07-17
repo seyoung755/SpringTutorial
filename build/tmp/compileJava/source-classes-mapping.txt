@@ -4,7 +4,13 @@ com/tutorial/springboot/costutorial/HttpController.java
  com.tutorial.springboot.costutorial.HttpController
 com/tutorial/springboot/Application.java
  com.tutorial.springboot.Application
+com/tutorial/springboot/model/Reply.java
+ com.tutorial.springboot.model.Reply
+com/tutorial/springboot/model/User.java
+ com.tutorial.springboot.model.User
 com/tutorial/springboot/web/HelloController.java
  com.tutorial.springboot.web.HelloController
 com/tutorial/springboot/costutorial/Member.java
  com.tutorial.springboot.costutorial.Member
+com/tutorial/springboot/model/Board.java
+ com.tutorial.springboot.model.Board
