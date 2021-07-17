@@ -20,6 +20,7 @@ spring:
     show-sql: true # 쿼리를 보여준다
     properties:
       hibernate.format_sql: true
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
 
   jackson:
     serialization:
