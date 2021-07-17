@@ -2,15 +2,25 @@ com/tutorial/springboot/costutorial/TempControllerTest.java
  com.tutorial.springboot.costutorial.TempControllerTest
 com/tutorial/springboot/costutorial/HttpController.java
  com.tutorial.springboot.costutorial.HttpController
+com/tutorial/springboot/domain/user/User.java
+ com.tutorial.springboot.domain.user.User
+ com.tutorial.springboot.domain.user.User$UserBuilder
+com/tutorial/springboot/domain/user/Role.java
+ com.tutorial.springboot.domain.user.Role
 com/tutorial/springboot/Application.java
  com.tutorial.springboot.Application
-com/tutorial/springboot/model/Reply.java
- com.tutorial.springboot.model.Reply
-com/tutorial/springboot/costutorial/Member.java
- com.tutorial.springboot.costutorial.Member
+com/tutorial/springboot/domain/user/UserRepository.java
+ com.tutorial.springboot.domain.user.UserRepository
+com/tutorial/springboot/domain/Reply.java
+ com.tutorial.springboot.domain.Reply
+ com.tutorial.springboot.domain.Reply$ReplyBuilder
+com/tutorial/springboot/domain/Board.java
+ com.tutorial.springboot.domain.Board
+ com.tutorial.springboot.domain.Board$BoardBuilder
+com/tutorial/springboot/costutorial/DummyControllerTest.java
+ com.tutorial.springboot.costutorial.DummyControllerTest
+ com.tutorial.springboot.costutorial.DummyControllerTest$1
 com/tutorial/springboot/web/HelloController.java
  com.tutorial.springboot.web.HelloController
-com/tutorial/springboot/model/User.java
- com.tutorial.springboot.model.User
-com/tutorial/springboot/model/Board.java
- com.tutorial.springboot.model.Board
+com/tutorial/springboot/costutorial/Member.java
+ com.tutorial.springboot.costutorial.Member

@@ -1,12 +1,22 @@
-package com.tutorial.springboot.model;
+package com.tutorial.springboot.domain;
 
+import com.tutorial.springboot.domain.user.User;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.ManyToAny;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.List;
 
+
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
 public class Board {
 
@@ -26,6 +36,9 @@ public class Board {
     @ManyToOne // Many = Board, User = One. 하나의 유저는 여러 게시글을 작성할 수 있다.
     @JoinColumn(name="userId")
     private User user; // DB는 오브젝트를 저장할 수 없으므로 Foreign Key를 사용한다. 그러나 Java는 오브젝트를 저장할 수 있다.
+
+    @OneToMany(mappedBy = "board", fetch=FetchType.EAGER) // mappedBy : 연관관계의 주인이 아니다 (난 FK가 아니에요) DB에 column을 만들지 마세요
+    private List<Reply> reply;
 
     @CreationTimestamp
     private Timestamp createDate;
