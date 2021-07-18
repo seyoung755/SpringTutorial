@@ -17,10 +17,10 @@ com/tutorial/springboot/domain/Reply.java
 com/tutorial/springboot/domain/Board.java
  com.tutorial.springboot.domain.Board
  com.tutorial.springboot.domain.Board$BoardBuilder
+com/tutorial/springboot/costutorial/Member.java
+ com.tutorial.springboot.costutorial.Member
+com/tutorial/springboot/web/HelloController.java
+ com.tutorial.springboot.web.HelloController
 com/tutorial/springboot/costutorial/DummyControllerTest.java
  com.tutorial.springboot.costutorial.DummyControllerTest
  com.tutorial.springboot.costutorial.DummyControllerTest$1
-com/tutorial/springboot/web/HelloController.java
- com.tutorial.springboot.web.HelloController
-com/tutorial/springboot/costutorial/Member.java
- com.tutorial.springboot.costutorial.Member
