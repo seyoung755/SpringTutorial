@@ -11,6 +11,7 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
+import java.nio.file.Path;
 import java.util.List;
 import java.util.function.Supplier;
 
@@ -21,25 +22,35 @@ public class DummyControllerTest {
     private UserRepository userRepository;
 
     // email, password 변경
+    @DeleteMapping("/dummy/user/{id}")
+    public String deleteUser(@PathVariable int id) {
+
+        try {
+            userRepository.deleteById(id);
+        } catch (Exception e) {
+            return "존재하지 않는 사용자입니다";
+        }
+
+        return "삭제가 완료되었습니다";
+    }
+
     @Transactional
     @PutMapping("/dummy/user/{id}")
     public User updateUser(@PathVariable int id, @RequestBody User requestUser) {
         String email = requestUser.getEmail();
         String password = requestUser.getPassword();
 
-        User user = userRepository.findById(id).orElseThrow(()-> {
+        User user = userRepository.findById(id).orElseThrow(() -> {
             return new IllegalArgumentException("수정에 실패하였습니다");
         });
-//        userRepository.save(user.builder().
-//                password(password).
-//                email(email).
-//                build());
+
         user.setEmail(email);
         user.setPassword(password);
+
         // save함수는 id에 해당하는 데이터가 없거나 id를 전달받지 않으면 insert를 하고
         // 있는 경우 update 쿼리를 날린다.
-        userRepository.save(user);
-        return null;
+
+        return user;
     }
 
     @GetMapping("/dummy/users")
@@ -73,10 +84,6 @@ public class DummyControllerTest {
 
     @PostMapping("/dummy/join")
     public String Join(User user) {
-        System.out.println(user.getUsername());
-        System.out.println(user.getPassword());
-        System.out.println(user.getEmail());
-        System.out.println(user.getCreateDate());
 
         user.setRole(Role.USER);
         userRepository.save(user);
