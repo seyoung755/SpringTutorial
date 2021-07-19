@@ -1,5 +1,6 @@
 package com.tutorial.springboot.domain;
 
+import com.tutorial.springboot.domain.board.Board;
 import com.tutorial.springboot.domain.user.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

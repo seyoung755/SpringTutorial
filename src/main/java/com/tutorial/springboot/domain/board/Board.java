@@ -1,10 +1,8 @@
-package com.tutorial.springboot.domain;
+package com.tutorial.springboot.domain.board;
 
+import com.tutorial.springboot.domain.Reply;
 import com.tutorial.springboot.domain.user.User;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -13,7 +11,7 @@ import java.sql.Timestamp;
 import java.util.List;
 
 
-@Getter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
