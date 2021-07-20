@@ -43,9 +43,9 @@ com/tutorial/springboot/domain/Reply.java
  com.tutorial.springboot.domain.Reply$ReplyBuilder
 com/tutorial/springboot/controller/api/UserApiController.java
  com.tutorial.springboot.controller.api.UserApiController
-com/tutorial/springboot/controller/UserController.java
- com.tutorial.springboot.controller.UserController
-com/tutorial/springboot/controller/api/BoardApiController.java
- com.tutorial.springboot.controller.api.BoardApiController
 com/tutorial/springboot/service/UserService.java
  com.tutorial.springboot.service.UserService
+com/tutorial/springboot/controller/api/BoardApiController.java
+ com.tutorial.springboot.controller.api.BoardApiController
+com/tutorial/springboot/controller/UserController.java
+ com.tutorial.springboot.controller.UserController
