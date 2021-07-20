@@ -3,6 +3,7 @@
 
 # .gradle 폴더의 모든 파일
 .gradle/
+.gradle
 
 # build 폴더의 모든 class 파일
 build/*.class

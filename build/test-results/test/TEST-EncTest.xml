@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="EncTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-07-19T07:54:29" hostname="gimseyeong-ui-MacBookAir.local" time="0.144">
-  <properties/>
-  <testcase name="해쉬_암호화" classname="EncTest" time="0.144"/>
-  <system-out><![CDATA[1234 해쉬 : $2a$10$wpJ.48gNAOAvmVJOc9DCfu14S9MiPcJncDOjcbRG16xk6YjTSzkCy
-]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
