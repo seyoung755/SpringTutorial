@@ -26,4 +26,10 @@ public class BoardApiController {
         boardService.글삭제하기(id, principal.getUser());
         return new ResponseDto<Integer>(HttpStatus.OK, 1);
     }
-}
+
+    @PutMapping("/api/board/{id}")
+    public ResponseDto<Integer> update(@PathVariable int id, @RequestBody Board board, @AuthenticationPrincipal PrincipalDetail principal) {
+        boardService.글수정하기(id, board, principal.getUser());
+        return new ResponseDto<Integer>(HttpStatus.OK, 1);
+    }
+ }

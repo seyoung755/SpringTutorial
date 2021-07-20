@@ -6,6 +6,7 @@ import com.tutorial.springboot.domain.user.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -41,9 +42,26 @@ public class BoardService {
 
     @Transactional
     public void 글삭제하기(int id, User user) {
-        if (id != user.getId()) {
-            throw new IllegalStateException("삭제 권한이 없습니다");
+        Board board = boardRepository.findById(id).orElseThrow(()-> {
+            return new IllegalArgumentException("해당 글이 존재하지 않습니다.");
+        });
+//        System.out.println("======= id : " + board.getUser().getId() + user.getId());
+        if (board.getUser().getId() != user.getId()) {
+            throw new IllegalStateException("삭제 권한이 없습니다.");
         }
-        boardRepository.deleteById(id);
+        boardRepository.delete(board);
+    }
+
+    public void 글수정하기(int id, Board new_board, User user) {
+        Board board = boardRepository.findById(id).orElseThrow(()-> {
+            return new IllegalArgumentException("해당 글이 존재하지 않습니다.");
+        });
+
+        if (board.getUser().getId() != user.getId()) {
+            throw new IllegalStateException("수정 권한이 없습니다.");
+        }
+        board.setTitle(new_board.getTitle());
+        board.setContent(new_board.getContent());
+        boardRepository.save(board);
     }
 }
