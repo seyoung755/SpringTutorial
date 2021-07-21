@@ -17,7 +17,7 @@ spring:
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl # 변수명 그대로 테이블을 만들어준다.
       use-new-id-generator-mappings: false # JPA가 사용하는 기본 넘버링 방식을 따라하지 않겠다.
-    show-sql: true # 쿼리를 보여준다
+    show-sql: false # 쿼리를 보여준다
     properties:
       hibernate.format_sql: true
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
@@ -31,8 +31,6 @@ spring:
     url: jdbc:mysql://localhost:3306/blog?serverTimezone=Asia/Seoul
     username: root
     password:
-  devtools:
-    livereload:
-      enabled: true
-  freemarker:
-    cache: false
+
+sey:
+  key: sey1234

@@ -62,6 +62,6 @@ public class BoardService {
         }
         board.setTitle(new_board.getTitle());
         board.setContent(new_board.getContent());
-        boardRepository.save(board);
+//        boardRepository.save(board);
     }
 }
