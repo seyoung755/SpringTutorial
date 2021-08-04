@@ -4,6 +4,7 @@ import com.tutorial.springboot.config.auth.PrincipalDetail;
 import com.tutorial.springboot.domain.Reply;
 import com.tutorial.springboot.domain.board.Board;
 import com.tutorial.springboot.domain.board.BoardRepository;
+import com.tutorial.springboot.dto.ReplySaveRequestDto;
 import com.tutorial.springboot.dto.ResponseDto;
 import com.tutorial.springboot.service.BoardService;
 import lombok.RequiredArgsConstructor;
@@ -37,9 +38,9 @@ public class BoardApiController {
     }
 
     @PostMapping("/api/board/{boardId}/reply")
-    public ResponseDto<Integer> replySave(@PathVariable int boardId, @RequestBody Reply reply, @AuthenticationPrincipal PrincipalDetail principal) {
+    public ResponseDto<Integer> replySave(@RequestBody ReplySaveRequestDto replySaveRequestDto) {
 
-        boardService.댓글쓰기(principal.getUser(), boardId, reply);
+        boardService.댓글쓰기(replySaveRequestDto);
         return new ResponseDto<Integer>(HttpStatus.OK, 1);
     }
 

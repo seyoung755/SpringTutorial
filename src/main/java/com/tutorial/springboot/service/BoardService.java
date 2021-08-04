@@ -5,6 +5,8 @@ import com.tutorial.springboot.domain.board.Board;
 import com.tutorial.springboot.domain.board.BoardRepository;
 import com.tutorial.springboot.domain.reply.ReplyRepository;
 import com.tutorial.springboot.domain.user.User;
+import com.tutorial.springboot.domain.user.UserRepository;
+import com.tutorial.springboot.dto.ReplySaveRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -68,15 +70,27 @@ public class BoardService {
     }
 
     @Transactional
-    public void 댓글쓰기(User user, int boardId, Reply requsetReply) {
+    public void 댓글쓰기(ReplySaveRequestDto replySaveRequestDto) {
 
-        Board board = boardRepository.findById(boardId).orElseThrow(()->{
-            return new IllegalArgumentException("댓글 쓰기 실패 : 게시글을 찾을 수 없습니다.");
-        });
+        replyRepository.mSave(replySaveRequestDto.getUserId(), replySaveRequestDto.getBoardId(), replySaveRequestDto.getContent());
 
-        requsetReply.setUser(user);
-        requsetReply.setBoard(board);
-
-        replyRepository.save(requsetReply);
+//        User user = userRepository.findById(replySaveRequestDto.getUserId()).orElseThrow(()->{
+//            return new IllegalArgumentException("댓글 쓰기 실패 : 올바른 유저가 아닙니다.");
+//        }); // 영속화 완료
+//
+//        Board board = boardRepository.findById(replySaveRequestDto.getBoardId()).orElseThrow(()->{
+//            return new IllegalArgumentException("댓글 쓰기 실패 : 게시글을 찾을 수 없습니다.");
+//        }); // 영속화 완료
+//
+//        Reply reply = Reply.builder()
+//                .user(user)
+//                .board(board)
+//                .content(replySaveRequestDto.getContent())
+//                .build();
+//
+////        Reply reply = new Reply();
+////        reply.update(user, board, replySaveRequestDto.getContent());
+//
+//        replyRepository.save(reply);
     }
 }

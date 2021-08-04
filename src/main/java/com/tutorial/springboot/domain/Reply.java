@@ -2,6 +2,7 @@ package com.tutorial.springboot.domain;
 
 import com.tutorial.springboot.domain.board.Board;
 import com.tutorial.springboot.domain.user.User;
+import com.tutorial.springboot.dto.ReplySaveRequestDto;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -33,4 +34,10 @@ public class Reply {
 
     @CreationTimestamp
     private Timestamp createDate;
+
+    public void update(User user, Board board, String content) {
+        setUser(user);
+        setBoard(board);
+        setContent(content);
+    }
 }
