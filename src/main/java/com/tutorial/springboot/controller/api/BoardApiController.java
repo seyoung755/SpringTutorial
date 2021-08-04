@@ -1,7 +1,9 @@
 package com.tutorial.springboot.controller.api;
 
 import com.tutorial.springboot.config.auth.PrincipalDetail;
+import com.tutorial.springboot.domain.Reply;
 import com.tutorial.springboot.domain.board.Board;
+import com.tutorial.springboot.domain.board.BoardRepository;
 import com.tutorial.springboot.dto.ResponseDto;
 import com.tutorial.springboot.service.BoardService;
 import lombok.RequiredArgsConstructor;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 public class BoardApiController {
 
     private final BoardService boardService;
+    private final BoardRepository boardRepository;
 
     @PostMapping("/api/board")
     public ResponseDto<Integer> save(@RequestBody Board board, @AuthenticationPrincipal PrincipalDetail principal) {
@@ -32,4 +35,12 @@ public class BoardApiController {
         boardService.글수정하기(id, board, principal.getUser());
         return new ResponseDto<Integer>(HttpStatus.OK, 1);
     }
- }
+
+    @PostMapping("/api/board/{boardId}/reply")
+    public ResponseDto<Integer> replySave(@PathVariable int boardId, @RequestBody Reply reply, @AuthenticationPrincipal PrincipalDetail principal) {
+
+        boardService.댓글쓰기(principal.getUser(), boardId, reply);
+        return new ResponseDto<Integer>(HttpStatus.OK, 1);
+    }
+
+}

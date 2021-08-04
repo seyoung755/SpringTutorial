@@ -1,7 +1,9 @@
 package com.tutorial.springboot.service;
 
+import com.tutorial.springboot.domain.Reply;
 import com.tutorial.springboot.domain.board.Board;
 import com.tutorial.springboot.domain.board.BoardRepository;
+import com.tutorial.springboot.domain.reply.ReplyRepository;
 import com.tutorial.springboot.domain.user.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -18,7 +20,7 @@ import java.util.Optional;
 public class BoardService {
 
     private final BoardRepository boardRepository;
-
+    private final ReplyRepository replyRepository;
 
     @Transactional
     public void 글쓰기(Board board, User user) {
@@ -63,5 +65,18 @@ public class BoardService {
         board.setTitle(new_board.getTitle());
         board.setContent(new_board.getContent());
 //        boardRepository.save(board);
+    }
+
+    @Transactional
+    public void 댓글쓰기(User user, int boardId, Reply requsetReply) {
+
+        Board board = boardRepository.findById(boardId).orElseThrow(()->{
+            return new IllegalArgumentException("댓글 쓰기 실패 : 게시글을 찾을 수 없습니다.");
+        });
+
+        requsetReply.setUser(user);
+        requsetReply.setBoard(board);
+
+        replyRepository.save(requsetReply);
     }
 }

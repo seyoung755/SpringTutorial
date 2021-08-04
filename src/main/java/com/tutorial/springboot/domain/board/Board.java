@@ -1,5 +1,7 @@
 package com.tutorial.springboot.domain.board;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.tutorial.springboot.domain.Reply;
 import com.tutorial.springboot.domain.user.User;
 import lombok.*;
@@ -36,7 +38,9 @@ public class Board {
     private User user; // DB는 오브젝트를 저장할 수 없으므로 Foreign Key를 사용한다. 그러나 Java는 오브젝트를 저장할 수 있다.
 
     @OneToMany(mappedBy = "board", fetch=FetchType.EAGER) // mappedBy : 연관관계의 주인이 아니다 (난 FK가 아니에요) DB에 column을 만들지 마세요
-    private List<Reply> reply;
+    @JsonIgnoreProperties({"board"})
+    @OrderBy("id desc")
+    private List<Reply> replys;
 
     @CreationTimestamp
     private Timestamp createDate;

@@ -33,7 +33,10 @@ public class UserService {
         String encPassword = encoder.encode(rawPassword);
         user.setPassword(encPassword);
         user.setRole(Role.USER);
-        userRepository.save(user);
+        if (!userRepository.existsByUsername(user.getUsername())) {
+            userRepository.save(user);
+        }
+
     }
 
     @Transactional

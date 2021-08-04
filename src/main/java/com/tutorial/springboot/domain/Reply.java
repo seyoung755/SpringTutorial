@@ -2,10 +2,7 @@ package com.tutorial.springboot.domain;
 
 import com.tutorial.springboot.domain.board.Board;
 import com.tutorial.springboot.domain.user.User;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
@@ -14,7 +11,7 @@ import java.sql.Timestamp;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
+@Data
 @Entity
 public class Reply {
 

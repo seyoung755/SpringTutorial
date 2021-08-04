@@ -51,6 +51,13 @@
                         <a class="nav-link" href="/logout">로그아웃</a>
                     </li>
                 </ul>
+                <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <h5 style="color: white">${principal.user.email}</h5>
+                        </li>
+                    </ul>
+                </div>
             </c:otherwise>
         </c:choose>
 
